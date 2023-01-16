@@ -19,7 +19,6 @@ impl<T: for<'a> Deserialize<'a>> JcWrapper<T> for Command {
         } else {
             Err(Error::NoOutput.into())
         }
-
     }
 
 }
