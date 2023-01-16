@@ -4,6 +4,7 @@ use serde::Deserialize;
 
 impl<T: for<'a> Deserialize<'a>> JcWrapper<T> for Command {
 
+    /// Called on a Command.
     fn parse(&mut self, output_type: CmdOutput) -> Result<T, Box<dyn std::error::Error>> {
 
         let output = self.stdout(Stdio::piped())

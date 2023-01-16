@@ -3,19 +3,21 @@ use thiserror::Error;
 
 mod jc;
 
+/// Error types
 #[derive(Error, Debug)]
 pub enum Error {
     #[error("Command has no output")]
     NoOutput,
 }
 
+/// All commands which are supported
 pub enum CmdOutput {
     Uptime,
 }
 
 
 impl CmdOutput {
-    pub fn get_flag(&self) -> &str {
+    pub(crate) fn get_flag(&self) -> &str {
         match self {
             Self::Uptime => "--uptime"
         }
