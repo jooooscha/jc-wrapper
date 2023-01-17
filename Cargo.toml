@@ -4,6 +4,7 @@ version = "0.2.0"
 edition = "2021"
 description = "A very simple wrapper for jc. Can be used directly on Command"
 license = "MIT"
+homepage = "https://github.com/jooooscha/jc-wrapper"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
