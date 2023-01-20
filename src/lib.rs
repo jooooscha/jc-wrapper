@@ -8,6 +8,14 @@ mod jc;
 pub enum Error {
     #[error("Command has no output")]
     NoOutput,
+    #[error("Could not spawn jc. Please make sure it is installed")]
+    CouldNotSpawnJc(std::io::Error),
+
+    #[error("Command could not be spawned")]
+    CouldNotSpawnCommand,
+
+    #[error("Command output could not be parsed by jc")]
+    CouldNotParse,
 }
 
 /// All commands which are supported
@@ -346,5 +354,5 @@ impl CmdOutput {
 }
 
 pub trait JcWrapper<T> where T: for<'a> Deserialize<'a> {
-    fn parse(&mut self, output_type: CmdOutput) -> Result<T, Box<dyn std::error::Error>>;
+    fn parse(&mut self, output_type: CmdOutput) -> Result<T, Error>;
 }
